@@ -24,6 +24,10 @@ namespace UnityEditor.XR.MagicLeap
             if (textureImporter)
             {
                 TextureImporterPlatformSettings settings = textureImporter.GetPlatformTextureSettings("Android");
+                
+                if (settings.overridden)
+                    return;
+                
                 TextureImporterFormat oldFormat = settings.format;
                 TextureImporterFormat newFormat = GetCompatibleTextureCompression(oldFormat);
                 if (oldFormat != newFormat)
