@@ -382,11 +382,13 @@ namespace UnityEditor.XR.MagicLeap
 
         public void OnPreprocessBuild(BuildReport report)
         {
+    #if UNITY_MAGIC_LEAP
             if (!BuildHelperUtils.HasLoader(report.summary.platformGroup, typeof(MagicLeapLoader)))
                 return;
 
             if (report.summary.platformGroup == BuildTargetGroup.Android && MagicLeapProjectValidation.LogBuildValidationIssues())
                 throw new BuildFailedException("MagicLeap Build Failed.");
+    #endif // UNITY_MAGIC_LEAP
         }
     }
 }
