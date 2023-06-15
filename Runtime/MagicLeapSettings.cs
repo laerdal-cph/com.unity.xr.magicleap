@@ -46,6 +46,12 @@ namespace UnityEngine.XR.MagicLeap
             /// <param name="defaultId">Id to return if no override has been registered for the provided type</param>
             /// <returns>Subsystemy id to create for the provided type</returns>
             public static string GetSubsystemOverrideOrDefault<T>(string defaultId) => s_OverrideMap.TryGetValue(typeof(T), out string subsystemId) ? subsystemId : defaultId;
+            
+            [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+            static void ResetDomainReload()
+            {
+                s_OverrideMap.Clear();
+            }
         }
 
     #if !UNITY_EDITOR
