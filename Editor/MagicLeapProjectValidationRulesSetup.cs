@@ -21,6 +21,7 @@ namespace UnityEditor.XR.MagicLeap
         private const string MagicLeapProjectValidationSettingsPath = "Project/XR Plug-in Management/Project Validation";
 
         // [InitializeOnLoadMethod]
+        [MenuItem("Magic Leap/Project Validation/Run Validation", priority = 100)]
         static void MagicLeapProjectValidationCheck()
         {
             UnityEditor.PackageManager.Events.registeredPackages += (packageRegistrationEventArgs) =>
