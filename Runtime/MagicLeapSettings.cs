@@ -37,7 +37,7 @@ namespace UnityEngine.XR.MagicLeap
             /// </summary>
             /// <typeparam name="T">Subsystem type</typeparam>
             /// <param name="subsystemId">Id of the subsystem to be created</param>
-            public static void RegisterSubsystemOverride<T>(string subsystemId) => s_OverrideMap.Add(typeof(T), subsystemId);
+            public static void RegisterSubsystemOverride<T>(string subsystemId) => s_OverrideMap.TryAdd(typeof(T), subsystemId);
 
             /// <summary>
             /// Get the Id registered for a given subsystem type.
@@ -47,11 +47,11 @@ namespace UnityEngine.XR.MagicLeap
             /// <returns>Subsystemy id to create for the provided type</returns>
             public static string GetSubsystemOverrideOrDefault<T>(string defaultId) => s_OverrideMap.TryGetValue(typeof(T), out string subsystemId) ? subsystemId : defaultId;
             
-            [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-            static void ResetDomainReload()
-            {
-                s_OverrideMap.Clear();
-            }
+            // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+            // static void ResetDomainReload()
+            // {
+            //     s_OverrideMap.Clear();
+            // }
         }
 
     #if !UNITY_EDITOR
