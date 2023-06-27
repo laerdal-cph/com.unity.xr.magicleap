@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 2858d43e9a709ac49b46329b567dd82e, type: 3}
   m_Name: Magic Leap Loader
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: UnityEngine.XR.MagicLeap.MagicLeapLoader, UnityEngine.XR.MagicLeap
